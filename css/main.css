@@ -123,8 +123,12 @@ p {
   padding-left: 1em;
 }
 .header-nav a,
-.drop-trigger {
-  color: #fff;
+.drop-trigger, 
+.show-mobile-menu {
+  font-size: 0.8rem;
+  font-weight: bold;
+  text-decoration: none;
+  text-transform: uppercase;
 }
 .header-logo {
   background-color: #000;
@@ -143,6 +147,12 @@ p {
 }
 .header-logo img {
   width: 4.3vh;
+}
+
+/* MOBILE MENU */
+.mobile-menu-check,
+.show-mobile-menu {
+  display: none;
 }
 
 /* NAV STYLES */
@@ -616,6 +626,64 @@ p {
   }
   .header-logo {
     left: auto;
+  }
+  /* MOBILE MENU */
+  .show-mobile-menu {
+    display: block;
+    float: right;
+    margin-top: 1.5vh;
+    padding: 1.5em;
+    position: relative;
+  }
+  .header-nav {
+    background-color: #444;
+    box-sizing: border-box;
+    left: 0;
+    top: 10vh;
+    max-height: 0;
+    width: 100vw;
+    padding: 0;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    transition: all 0.5s ease-in-out;
+    z-index: 9;
+  }
+  .header-nav li {
+    display: block;
+    margin-top: 1em;
+  }
+  .header-nav li ~ li {
+    border: 0;
+    padding: 0;
+  }
+  .header-nav li:last-child {
+    margin-bottom: 1em;
+  }
+  .header-nav li:first-child a {
+    color: #fff;
+  }
+  /* HIDE DROPDOWN IN THE NAV MENU */
+  .header-nav .dropdown:hover .drop-menu,
+  .header-nav .drop-trigger:after {
+    display: none;
+  }
+  .header-nav .drop-trigger {
+    padding-right: 0;
+  }
+  .mobile-menu-check:checked ~ .header-nav {
+    max-height: 1000px;
+  }
+  .mobile-menu-check:checked ~ .show-mobile-menu:after {
+    background-color: #000;
+    color: #ed6e2f;
+    content: "CLOSE";
+    left: 0;
+    position: absolute;
+    top: 1.5em;
+    width: 100%;
+    text-align: center;
   }
   /* HOME STYLES */
   .home-callout {
