@@ -7,13 +7,14 @@ function activateGallery(){
   let mainDescription= document.querySelector("#gallery-info > p")
 
   thumbnails.forEach(function(thumbnail){
-    thumbnail.onclick = function() {
       // Preload large images.
       let newImageSrc  = thumbnail.dataset.largeVersion;
       let largeVersion = new Image();
       largeVersion.src = newImageSrc;
+      console.log(largeVersion.src)
 
-      let newAlt = thumbnail.alt    
+      thumbnail.onclick = function() {
+      let newAlt = thumbnail.alt;
       let newTitle = thumbnail.dataset.title;
       let newDescription = thumbnail.dataset.description;
 
