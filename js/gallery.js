@@ -8,7 +8,11 @@ function activateGallery(){
 
   thumbnails.forEach(function(thumbnail){
     thumbnail.onclick = function() {
+      // Preload large images.
       let newImageSrc  = thumbnail.dataset.largeVersion;
+      let largeVersion = new Image();
+      largeVersion.src = newImageSrc;
+
       let newAlt = thumbnail.alt    
       let newTitle = thumbnail.dataset.title;
       let newDescription = thumbnail.dataset.description;
